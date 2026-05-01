@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const auth = require('../middleware/auth');
+const c = require('../controllers/taskController');
+router.post('/', auth, c.createTask);
+router.get('/project/:projectId', auth, c.getTasksByProject);
+router.get('/my', auth, c.getMyTasks);
+router.get('/overdue', auth, c.getOverdueTasks);
+router.put('/:id', auth, c.updateTask);
+router.delete('/:id', auth, c.deleteTask);
+module.exports = router;
