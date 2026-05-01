@@ -5,7 +5,6 @@ services:
     rootDir: backend
     buildCommand: npm install
     startCommand: npm start
-    plan: free
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -22,13 +21,11 @@ services:
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
-    plan: free
     envVars:
       - key: VITE_API_URL
         value: https://team-task-manager-backend.onrender.com/api
 
 databases:
   - name: task-manager-db
-    plan: free
     databaseName: taskmanager
     user: taskmanager
